@@ -2,8 +2,8 @@ import Koa from 'koa';
 import path from 'path';
 import { getHooks, deepMerge } from './utils'
 import { Hook, App, DiudiuProcess } from './types';
-const hooks = [ 'log', 'redis', 'mysql', 'elasticsearch', 'static', 'view', 'bodyparser', 'login', 'custom-middlewares' ,'cors', 'router', 'lift' ];
-
+//const hooks = [ 'log', 'redis', 'mysql', 'elasticsearch', 'static', 'view', 'bodyparser', 'login', 'custom-middlewares' ,'cors', 'router', 'lift' ];
+const hooks = [ 'log', 'static', 'view', 'bodyparser', 'login', 'custom-middlewares' ,'cors', 'router', 'lift' ];
 type Params = {
   appPath: string;
 }
@@ -14,7 +14,7 @@ export default async function Diudiu(params: Params) {
   const app: App = (new Koa()) as App;
   const { appPath } = params;
   app.appPath = appPath;
-
+  console.log('appPath:',appPath)
   // 获取所有的config
   const env = process.env.NODE_ENV;
   const extName = app.extName = env === 'development' ? '.ts' : '.js';
