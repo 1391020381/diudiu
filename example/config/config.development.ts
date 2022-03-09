@@ -1,7 +1,7 @@
 import path from 'path';
 export default app => {
   return {
-    router: 'file',
+    router: 'file-xxxxxxxxx',
     devServer: {
       port: 8888
     },

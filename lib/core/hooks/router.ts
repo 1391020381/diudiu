@@ -4,6 +4,7 @@ import compose from 'koa-compose';
 
 export default async (app) => { 
   const { router } = app.config;
+  console.log('router:',router)
   const filesList = glob.sync(path.resolve(app.appPath, './controller', `**/*${app.extName}`))
 
   // 如果是文件路由类型
