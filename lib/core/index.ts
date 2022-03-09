@@ -23,6 +23,7 @@ export default async function Diudiu(params: Params) {
   app.config = deepMerge(baseConfig.default(app), curConfig.default(app));
 console.log('config:',app.config)
   const allHooks: Hook[] = await getHooks(hooks);
+  console.log('allHooks:',allHooks)
   for ( const hook of allHooks ) {
     try {
       await hook.default(app);
